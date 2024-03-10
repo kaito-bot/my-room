@@ -8,8 +8,11 @@ export default class World {
     this.sizes = this.experience.sizes;
     this.canvas = this.experience.canvas;
     this.camera = this.experience.camera;
-
-    this.room = new Room();
+    this.resources = this.experience.resources;
+    this.resources.on("ready", () => {
+      this.room = new Room();
+      console.log("created room");
+    });
   }
 
   resize() {}
