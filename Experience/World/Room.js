@@ -19,8 +19,8 @@ export default class Room {
 
       if (child instanceof THREE.Group) {
         child.children.forEach((groupChild) => {
-          child.castShadow = true;
-          child.receiveShadow = true;
+          groupChild.castShadow = true;
+          groupChild.receiveShadow = true;
         });
       }
     });
