@@ -3,6 +3,7 @@ import * as THREE from "three";
 import Room from "./Room";
 import Environment from "./Environment";
 import Controls from "./Controls";
+import Floor from "./Floor";
 
 export default class World {
   constructor() {
@@ -17,6 +18,7 @@ export default class World {
       this.environment = new Environment();
       this.room = new Room();
       console.log("created room");
+      this.floor = new Floor();
       this.controls = new Controls();
     });
   }

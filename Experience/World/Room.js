@@ -9,7 +9,7 @@ export default class Room {
     this.resources = this.experience.resources;
     this.room = this.resources.items.room;
     this.actualRoom = this.room.scene;
-    console.log(this.actualRoom);
+    //console.log(this.actualRoom);
 
     this.lerp = {
       current: 0,
@@ -21,11 +21,14 @@ export default class Room {
     this.onMouseMove();
   }
   setModel() {
-    this.actualRoom.children.forEach((child) => {
+    this.child1 = this.actualRoom.children[0].children[0].children;
+    //console.log(this.child1);
+    this.child1.forEach((child) => {
       child.castShadow = true;
       child.receiveShadow = true;
 
-      if (child instanceof THREE.Group) {
+      if (child.isObject3D) {
+        console.log("it's running");
         child.children.forEach((groupChild) => {
           groupChild.castShadow = true;
           groupChild.receiveShadow = true;
@@ -39,10 +42,8 @@ export default class Room {
 
   onMouseMove() {
     window.addEventListener("mousemove", (e) => {
-      console.log(e);
       this.rotation =
         ((e.clientX - window.innerWidth / 2) * 2) / window.innerWidth;
-      console.log(e.clientX, this.rotation);
       this.lerp.target = this.rotation * 0.1;
     });
   }
