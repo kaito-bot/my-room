@@ -9,6 +9,13 @@
 html,
 body {
   font-family: "Montserrat", sans-serif;
+  color: var(--text-black);
+}
+
+:root {
+  --text-black: rgb(48, 46, 46);
+  --primary-color: rgb(241, 233, 214);
+  --secondary-color: #e5a1aa;
 }
 
 /* Experience----------------------------- */
@@ -83,4 +90,64 @@ body {
   font-size: 30px;
   text-transform: uppercase;
   font-weight: 600;
+}
+
+/*Section pages--------------------------------*/
+
+.section-pages {
+  height: 3000px;
+  width: 100%;
+}
+
+.section {
+  position: relative;
+  width: 50%;
+  padding: 100px 4%;
+  margin: 0;
+  background-color: var(--primary-color);
+}
+
+.left {
+  margin-right: auto;
+  margin-bottom: 400px;
+}
+
+.right {
+  margin-left: auto;
+}
+
+.section-intro-wrapper {
+  position: relative;
+  padding: 1.5% 5px;
+  line-height: 1.8;
+  border-bottom: 2px solid var(--secondary-color);
+}
+
+.section-detail-wrapper {
+  position: relative;
+  padding: 5% 5px;
+}
+
+.section-title {
+  font-size: 36px;
+  font-weight: 700;
+}
+
+.section-number {
+  position: absolute;
+  right: 0;
+  bottom: 0px;
+  font-size: 12px;
+}
+
+.section-subheading {
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 2;
+  margin-top: 20px;
+}
+
+.section-text {
+  line-height: 2;
+  margin-top: 15px;
 }
