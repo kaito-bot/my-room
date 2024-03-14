@@ -14,8 +14,10 @@ body {
 
 :root {
   --text-black: rgb(48, 46, 46);
-  --primary-color: rgb(241, 233, 214);
-  --secondary-color: #e5a1aa;
+  --color-background: rgb(241, 233, 214);
+  --color-pink: #e5a1aa;
+  --color-green: #7ad0ac;
+  --color-blue: #8395cd;
 }
 
 /* Experience----------------------------- */
@@ -104,7 +106,7 @@ body {
   width: 50%;
   padding: 100px 4%;
   margin: 0;
-  background-color: var(--primary-color);
+  background-color: var(--color-background);
 }
 
 .left {
@@ -119,7 +121,7 @@ body {
   position: relative;
   padding: 1.5% 5px;
   line-height: 1.8;
-  border-bottom: 2px solid var(--secondary-color);
+  border-bottom: 2px solid var(--color-pink);
 }
 
 .section-detail-wrapper {
@@ -130,12 +132,13 @@ body {
 .section-title {
   font-size: 36px;
   font-weight: 700;
+  line-height: 3;
 }
 
 .section-number {
   position: absolute;
   right: 0;
-  bottom: 0px;
+  bottom: -3px;
   font-size: 12px;
 }
 
@@ -149,4 +152,12 @@ body {
 .section-text {
   line-height: 2;
   margin-top: 15px;
+}
+
+/*Media Queries--------------------------*/
+
+@media (max-width: 760px) {
+  .section {
+    width: 100%;
+  }
 }
