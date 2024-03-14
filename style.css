@@ -95,7 +95,7 @@ body {
 /*Section pages--------------------------------*/
 
 .section-pages {
-  height: 3000px;
+  height: 500px;
   width: 100%;
 }
 
@@ -109,7 +109,6 @@ body {
 
 .left {
   margin-right: auto;
-  margin-bottom: 400px;
 }
 
 .right {
