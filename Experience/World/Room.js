@@ -36,8 +36,8 @@ export default class Room {
       }
     });
     this.actualRoom.scale.set(0.7, 0.7, 0.7);
+    //this.actualRoom.rotation.y = -Math.PI / 2;
     this.scene.add(this.actualRoom);
-    //this.actualRoom.rotation.y = Math.PI / 2;
   }
 
   onMouseMove() {
