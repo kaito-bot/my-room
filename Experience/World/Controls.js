@@ -55,10 +55,10 @@ export default class Controls {
         this.camera.orthographicCamera.position,
         {
           x: () => {
-            return -2.6;
+            return -this.sizes.width * 0.002;
           },
           y: () => {
-            return -3.1;
+            return -this.sizes.height * 0.003;
           },
           z: () => {
             return -this.sizes.height * 0.011;

@@ -156,7 +156,7 @@ body {
 
 /*Media Queries--------------------------*/
 
-@media (max-width: 760px) {
+@media (max-width: 968px) {
   .section {
     width: 100%;
   }
