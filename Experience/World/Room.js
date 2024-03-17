@@ -35,7 +35,7 @@ export default class Room {
         });
       }
     });
-    this.actualRoom.scale.set(0.7, 0.7, 0.7);
+    this.actualRoom.scale.set(0.75, 0.75, 0.75);
     //this.actualRoom.rotation.y = -Math.PI / 2;
     this.scene.add(this.actualRoom);
   }
