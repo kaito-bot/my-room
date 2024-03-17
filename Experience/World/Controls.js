@@ -21,9 +21,11 @@ export default class Controls {
     // create
     let mm = GSAP.matchMedia();
 
-    //Desktop
+    //Desktop---------------------------------------------------------------------
     mm.add("(min-width: 969px)", () => {
-      //first section
+      this.room.scale.set(0.75, 0.75, 0.75);
+
+      //first section-------------------------------------------------------------
       this.firstMoveTimeline = new GSAP.timeline({
         scrollTrigger: {
           trigger: ".first-move",
@@ -40,7 +42,7 @@ export default class Controls {
         },
       });
 
-      //second section
+      //second section--------------------------------------------------------
       this.secondMoveTimeline = new GSAP.timeline({
         scrollTrigger: {
           trigger: ".second-move",
@@ -77,7 +79,7 @@ export default class Controls {
         "play at same time"
       );
 
-      //third section
+      //third section------------------------------------------------------------
       this.thirdMoveTimeline = new GSAP.timeline({
         scrollTrigger: {
           trigger: ".third-move",
@@ -87,15 +89,109 @@ export default class Controls {
           invalidateOnRefresh: true,
         },
       });
-
-      this.thirdMoveTimeline.to(this.camera.orthographicCamera.position, {
-        x: -2.5,
-        y: -3.5,
-      });
+      this.thirdMoveTimeline.to(
+        this.camera.orthographicCamera.scale,
+        {
+          x: 0.28,
+          y: 0.28,
+          z: 0.28,
+        },
+        "third"
+      );
+      this.thirdMoveTimeline.to(
+        this.camera.orthographicCamera.position,
+        {
+          x: -2.8,
+          y: -2.5,
+        },
+        "third"
+      );
     });
-
+    //mobile----------------------------------------------------------------------
     mm.add("(max-width: 968px)", () => {
-      console.log("fired mobile");
+      //resets
+      this.room.scale.set(0.45, 0.45, 0.45);
+      this.room.position.x = 0.25;
+
+      //first section-------------------------------------------------------------
+      this.firstMoveTimeline = new GSAP.timeline({
+        scrollTrigger: {
+          trigger: ".first-move",
+          start: "top top",
+          end: "bottom bottom",
+          scrub: 0.1,
+          invalidateOnRefresh: true,
+        },
+      });
+
+      this.firstMoveTimeline.to(this.room.scale, {
+        x: 0.6,
+        y: 0.6,
+        z: 0.6,
+      });
+      //second section------------------------------------------------------------
+      this.secondMoveTimeline = new GSAP.timeline({
+        scrollTrigger: {
+          trigger: ".second-move",
+          start: "top top",
+          end: "bottom bottom",
+          scrub: 0.25,
+          invalidateOnRefresh: true,
+        },
+      });
+
+      this.secondMoveTimeline.to(
+        this.camera.orthographicCamera.position,
+        {
+          x: () => {
+            return this.sizes.width * 0.0018;
+          },
+          y: () => {
+            return -this.sizes.height * 0.002;
+          },
+          z: () => {
+            return -this.sizes.height * 0.011;
+          },
+        },
+        "play at same time"
+      );
+
+      this.secondMoveTimeline.to(
+        this.camera.orthographicCamera.scale,
+        {
+          x: 0.32,
+          y: 0.32,
+          z: 0.32,
+        },
+        "play at same time"
+      );
+      //third section------------------------------------------------------------
+      this.thirdMoveTimeline = new GSAP.timeline({
+        scrollTrigger: {
+          trigger: ".third-move",
+          start: "top top",
+          end: "bottom bottom",
+          scrub: 0.1,
+          invalidateOnRefresh: true,
+        },
+      });
+      this.thirdMoveTimeline.to(
+        this.camera.orthographicCamera.scale,
+        {
+          x: 0.28,
+          y: 0.28,
+          z: 0.28,
+        },
+        "third"
+      );
+      this.thirdMoveTimeline.to(
+        this.camera.orthographicCamera.position,
+        {
+          x: -0.7,
+          y: -1.8,
+        },
+        "third"
+      );
     });
   }
   resize() {}
