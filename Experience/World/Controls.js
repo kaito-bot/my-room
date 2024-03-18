@@ -23,7 +23,7 @@ export default class Controls {
 
     //Desktop---------------------------------------------------------------------
     mm.add("(min-width: 969px)", () => {
-      this.room.scale.set(0.75, 0.75, 0.75);
+      this.room.scale.set(0.7, 0.7, 0.7);
 
       //first section-------------------------------------------------------------
       this.firstMoveTimeline = new GSAP.timeline({
@@ -101,14 +101,18 @@ export default class Controls {
       this.thirdMoveTimeline.to(
         this.camera.orthographicCamera.position,
         {
-          x: -2.8,
-          y: -2.5,
+          x: () => {
+            return -this.sizes.width * 0.002;
+          },
+          y: () => {
+            return -this.sizes.height * 0.004;
+          },
         },
         "third"
       );
     });
     //mobile----------------------------------------------------------------------
-    mm.add("(max-width: 968px)", () => {
+    mm.add("(max-width: 450px)", () => {
       //resets
       this.room.scale.set(0.45, 0.45, 0.45);
       this.room.position.x = 0.25;
@@ -147,7 +151,7 @@ export default class Controls {
             return this.sizes.width * 0.0018;
           },
           y: () => {
-            return -this.sizes.height * 0.002;
+            return -this.sizes.height * 0.003;
           },
           z: () => {
             return -this.sizes.height * 0.011;
@@ -187,8 +191,12 @@ export default class Controls {
       this.thirdMoveTimeline.to(
         this.camera.orthographicCamera.position,
         {
-          x: -0.7,
-          y: -1.8,
+          x: () => {
+            return -this.sizes.width * 0.0015;
+          },
+          y: () => {
+            return -this.sizes.height * 0.0035;
+          },
         },
         "third"
       );
