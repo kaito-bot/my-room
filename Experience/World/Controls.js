@@ -14,6 +14,7 @@ export default class Controls {
     this.room = this.experience.world.room.actualRoom;
 
     GSAP.registerPlugin(ScrollTrigger);
+    document.querySelector(".page").style.overflow = "visible";
     this.setSmoothScroll();
     this.setScrollTrigger();
   }
