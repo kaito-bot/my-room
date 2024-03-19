@@ -344,13 +344,10 @@ export default class Controls {
 
     mm.add("(min-width:20px)", () => {
       this.sections = document.querySelectorAll(".section");
-      console.log(this.sections);
-      this.sections.forEach((section) => {
-        console.log("inside foreach");
-        this.progressWrapper = section.querySelector(".progress-wrapper");
 
+      this.sections.forEach((section) => {
+        this.progressWrapper = section.querySelector(".progress-wrapper");
         this.progressBar = section.querySelector(".progress-bar");
-        console.log("progress-bar");
 
         if (section.classList.contains("right")) {
           GSAP.to(section, {

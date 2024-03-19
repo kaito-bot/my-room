@@ -9,6 +9,7 @@ export default class Room {
     this.resources = this.experience.resources;
     this.room = this.resources.items.room;
     this.actualRoom = this.room.scene;
+    this.roomChildren = {};
     //console.log(this.actualRoom);
 
     this.lerp = {
@@ -26,14 +27,21 @@ export default class Room {
     this.child1.forEach((child) => {
       child.castShadow = true;
       child.receiveShadow = true;
-
+      //console.log(child);
       if (child.isObject3D) {
-        console.log("it's running");
         child.children.forEach((groupChild) => {
           groupChild.castShadow = true;
           groupChild.receiveShadow = true;
         });
       }
+      child.scale.set(0, 0, 0);
+      if (child.name === "preloader_cube") {
+        child.scale.set(0.5, 0.5, 0.5);
+        child.position.set(0, 20, 0);
+        child.rotation.y = Math.PI / 4;
+      }
+
+      this.roomChildren[child.name.toLowerCase()] = child;
     });
     this.actualRoom.scale.set(0.75, 0.75, 0.75);
     //this.actualRoom.rotation.y = -Math.PI / 2;
