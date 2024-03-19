@@ -10,6 +10,10 @@ export default class Preloader extends EventEmitter {
     this.resources = this.experience.resources;
     this.camera = this.experience.camera;
     this.world = this.experience.world;
+    this.device = this.sizes.device;
+    this.sizes.on("switchdevice", (device) => {
+      this.device = device;
+    });
 
     this.world.on("worldIsReady", () => {
       this.setAssets();
@@ -24,19 +28,35 @@ export default class Preloader extends EventEmitter {
 
   firstIntro() {
     this.timeline = new GSAP.timeline();
-    this.timeline
-      .to(this.roomChildren.preloader_cube.scale, {
-        x: 1,
-        y: 1,
-        z: 1,
-        ease: "back.out(2.5)",
-        duration: 0.7,
-      })
-      .to(this.room.position, {
-        x: -1,
-        ease: "power1.out",
-        duration: 0.7,
-      });
+    if (this.device === "desktop") {
+      this.timeline
+        .to(this.roomChildren.preloader_cube.scale, {
+          x: 1,
+          y: 1,
+          z: 1,
+          ease: "back.out(2.5)",
+          duration: 0.7,
+        })
+        .to(this.room.position, {
+          x: -1,
+          ease: "power1.out",
+          duration: 0.7,
+        });
+    } else {
+      this.timeline
+        .to(this.roomChildren.preloader_cube.scale, {
+          x: 1,
+          y: 1,
+          z: 1,
+          ease: "back.out(2.5)",
+          duration: 0.7,
+        })
+        .to(this.room.position, {
+          z: -1,
+          ease: "power1.out",
+          duration: 0.7,
+        });
+    }
   }
   playIntro() {
     this.firstIntro();
