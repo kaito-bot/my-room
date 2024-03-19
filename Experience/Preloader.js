@@ -1,6 +1,7 @@
 import { EventEmitter } from "events";
 import Experience from "./Experience";
 import GSAP from "gsap";
+
 export default class Preloader extends EventEmitter {
   constructor() {
     super();
@@ -17,7 +18,7 @@ export default class Preloader extends EventEmitter {
 
     this.world.on("worldIsReady", () => {
       this.setAssets();
-      this.playIntro();
+      this.playFirstIntro();
     });
   }
   setAssets() {
@@ -27,38 +28,162 @@ export default class Preloader extends EventEmitter {
   }
 
   firstIntro() {
-    this.timeline = new GSAP.timeline();
-    if (this.device === "desktop") {
-      this.timeline
-        .to(this.roomChildren.preloader_cube.scale, {
+    return new Promise((resolve) => {
+      this.firstIntroTimeline = new GSAP.timeline();
+      if (this.device === "desktop") {
+        this.firstIntroTimeline
+          .to(this.roomChildren.preloader_cube.scale, {
+            x: 1,
+            y: 1,
+            z: 1,
+            ease: "back.out(2.5)",
+            duration: 0.7,
+          })
+          .to(this.room.position, {
+            x: -1,
+            ease: "power1.out",
+            duration: 0.7,
+            onComplete: resolve,
+          });
+      } else {
+        this.firstIntroTimeline
+          .to(this.roomChildren.preloader_cube.scale, {
+            x: 1,
+            y: 1,
+            z: 1,
+            ease: "back.out(2.5)",
+            duration: 0.7,
+          })
+          .to(this.room.position, {
+            z: -1,
+            ease: "power1.out",
+            duration: 0.7,
+            onComplete: resolve,
+          });
+      }
+    });
+  }
+
+  secondIntro() {
+    return new Promise((resolve) => {
+      this.secondIntroTimeline = new GSAP.timeline();
+
+      this.secondIntroTimeline
+        .to(
+          this.room.position,
+          {
+            x: 0,
+            y: 0,
+            z: 0,
+            ease: "power1.out",
+          },
+          "secondIntro"
+        )
+        .to(
+          this.roomChildren.preloader_cube.rotation,
+          {
+            y: 2 * Math.PI + Math.PI / 4,
+          },
+          "secondIntro"
+        )
+        .to(
+          this.roomChildren.preloader_cube.scale,
+          { x: 5, y: 5, z: 5 },
+          "secondIntro"
+        )
+        .to(this.camera.orthographicCamera.position, { y: 4.7 }, "secondIntro")
+        .to(
+          this.roomChildren.preloader_cube.position,
+          {
+            x: 0,
+            y: 250,
+            z: 1,
+          },
+          "secondIntro"
+        )
+        .set(this.roomChildren.walls.scale, {
           x: 1,
           y: 1,
           z: 1,
-          ease: "back.out(2.5)",
-          duration: 0.7,
         })
-        .to(this.room.position, {
-          x: -1,
-          ease: "power1.out",
-          duration: 0.7,
-        });
-    } else {
-      this.timeline
-        .to(this.roomChildren.preloader_cube.scale, {
+        .to(this.roomChildren.preloader_cube.scale, { x: 0, y: 0, z: 0 })
+
+        .to(this.roomChildren.floor_items.scale, {
           x: 1,
           y: 1,
           z: 1,
-          ease: "back.out(2.5)",
-          duration: 0.7,
+          ease: "back.out(0.8)",
+          duration: 0.5,
         })
-        .to(this.room.position, {
-          z: -1,
-          ease: "power1.out",
-          duration: 0.7,
+        .to(this.roomChildren.posters.scale, {
+          x: 1,
+          y: 1,
+          z: 1,
+          ease: "back.out(1)",
+          duration: 0.5,
+        })
+        .to(this.roomChildren.small_table.scale, {
+          x: 1,
+          y: 1,
+          z: 1,
+          ease: "back.out(2.2)",
+          duration: 0.5,
+        })
+        .to(this.roomChildren.board.scale, {
+          x: 1,
+          y: 1,
+          z: 1,
+          ease: "back.out(1)",
+          duration: 0.5,
+        })
+
+        .to(this.roomChildren.table_stands.scale, {
+          x: 1,
+          y: 1,
+          z: 1,
+          ease: "back.out(2)",
+          duration: 0.5,
+        })
+
+        .to(this.roomChildren.desk_items.scale, {
+          x: 1,
+          y: 1,
+          z: 1,
+          ease: "back.out(2.2)",
+          duration: 0.5,
+        })
+        .to(this.roomChildren.laptop.scale, {
+          x: 0.5,
+          y: 0.5,
+          z: 0.5,
+          ease: "back.out(2.2)",
+          duration: 0.5,
+        })
+        .to(this.roomChildren.chair.scale, {
+          x: 1.5,
+          y: 1.5,
+          z: 1.5,
+          ease: "back.out(2.2)",
+          duration: 0.5,
+          onComplete: resolve,
         });
+    });
+  }
+  onScroll(e) {
+    if (e.deltaY > 0) {
+      console.log("added event");
+      window.removeEventListener("wheel", this.scrollOnceEvent);
+      this.playSecondIntro();
     }
   }
-  playIntro() {
-    this.firstIntro();
+  async playFirstIntro() {
+    await this.firstIntro();
+    console.log("continuing");
+    this.scrollOnceEvent = this.onScroll.bind(this);
+    window.addEventListener("wheel", this.scrollOnceEvent);
+  }
+
+  async playSecondIntro() {
+    await this.secondIntro();
   }
 }
