@@ -36,6 +36,10 @@ export default class Preloader extends EventEmitter {
   firstIntro() {
     return new Promise((resolve) => {
       this.firstIntroTimeline = new GSAP.timeline();
+      this.firstIntroTimeline.set(".animate-it", {
+        y: 0,
+        yPercent: 100,
+      });
       this.firstIntroTimeline.to(".preloader", {
         opacity: 0,
         duration: 1,
@@ -74,7 +78,7 @@ export default class Preloader extends EventEmitter {
       }
       this.firstIntroTimeline
         .to(".intro-text .animate-it", {
-          yPercent: -100,
+          yPercent: 0,
           stagger: 0.07,
           ease: "back.out(1.2)",
           duration: 0.2,
@@ -150,7 +154,7 @@ export default class Preloader extends EventEmitter {
         .to(
           ".hero-main-title .animate-it",
           {
-            yPercent: -100,
+            yPercent: 0,
             stagger: 0.07,
             ease: "back.out(1.2)",
           },
@@ -159,7 +163,7 @@ export default class Preloader extends EventEmitter {
         .to(
           ".hero-main-description .animate-it",
           {
-            yPercent: -100,
+            yPercent: 0,
             stagger: 0.07,
             ease: "back.out(1.2)",
           },
@@ -168,7 +172,7 @@ export default class Preloader extends EventEmitter {
         .to(
           ".hero-second-title .animate-it",
           {
-            yPercent: -100,
+            yPercent: 0,
             stagger: 0.07,
             ease: "back.out(1.2)",
           },
@@ -177,7 +181,7 @@ export default class Preloader extends EventEmitter {
         .to(
           ".hero-second-subtitle .animate-it",
           {
-            yPercent: -100,
+            yPercent: 0,
             stagger: 0.07,
             ease: "back.out(1.2)",
           },
