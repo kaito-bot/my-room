@@ -198,6 +198,7 @@ export default class Preloader extends EventEmitter {
 
   async playFirstIntro() {
     await this.firstIntro();
+    this.moveFlag = true;
     console.log("continuing");
     //desktop view
     this.scrollOnceEvent = this.onScroll.bind(this);
@@ -210,7 +211,22 @@ export default class Preloader extends EventEmitter {
   }
 
   async playSecondIntro() {
+    this.moveFlag = false;
     await this.secondIntro();
     this.emit("enable-controls");
+  }
+
+  move() {
+    if (this.device === "desktop") {
+      this.room.position.set(-1, 0, 0);
+    } else {
+      this.room.position.set(0, 0, -1);
+    }
+  }
+
+  update() {
+    if (this.moveFlag) {
+      this.move();
+    }
   }
 }
