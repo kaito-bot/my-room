@@ -1,6 +1,7 @@
 import { EventEmitter } from "events";
 import Experience from "./Experience";
 import GSAP from "gsap";
+import divToSpan from "./Utils/divToSpan";
 
 export default class Preloader extends EventEmitter {
   constructor() {
@@ -22,6 +23,11 @@ export default class Preloader extends EventEmitter {
     });
   }
   setAssets() {
+    divToSpan(document.querySelector(".intro-text"));
+    divToSpan(document.querySelector(".hero-main-title"));
+    divToSpan(document.querySelector(".hero-main-description"));
+    divToSpan(document.querySelector(".hero-second-title"));
+    divToSpan(document.querySelector(".hero-second-subtitle"));
     this.room = this.experience.world.room.actualRoom;
     this.roomChildren = this.experience.world.room.roomChildren;
     console.log(this.roomChildren);
@@ -43,7 +49,6 @@ export default class Preloader extends EventEmitter {
             x: -1,
             ease: "power1.out",
             duration: 0.7,
-            onComplete: resolve,
           });
       } else {
         this.firstIntroTimeline
@@ -58,9 +63,15 @@ export default class Preloader extends EventEmitter {
             z: -1,
             ease: "power1.out",
             duration: 0.7,
-            onComplete: resolve,
           });
       }
+      this.firstIntroTimeline.to(".intro-text .animate-it", {
+        yPercent: -100,
+        stagger: 0.07,
+        ease: "back.out(1.2)",
+        duration: 0.2,
+        onComplete: resolve,
+      });
     });
   }
 
@@ -69,6 +80,11 @@ export default class Preloader extends EventEmitter {
       this.secondIntroTimeline = new GSAP.timeline();
 
       this.secondIntroTimeline
+        .to(".intro-text .animate-it", {
+          yPercent: 100,
+          stagger: 0.07,
+          ease: "back.in(1.7)",
+        })
         .to(
           this.room.position,
           {
@@ -107,51 +123,111 @@ export default class Preloader extends EventEmitter {
           z: 1,
         })
         .to(this.roomChildren.preloader_cube.scale, { x: 0, y: 0, z: 0 })
+        .to(
+          ".hero-main-title .animate-it",
+          {
+            yPercent: -100,
+            stagger: 0.07,
+            ease: "back.out(1.2)",
+          },
+          "hero-text"
+        )
+        .to(
+          ".hero-main-description .animate-it",
+          {
+            yPercent: -100,
+            stagger: 0.07,
+            ease: "back.out(1.2)",
+          },
+          "hero-text"
+        )
+        .to(
+          ".hero-second-title .animate-it",
+          {
+            yPercent: -100,
+            stagger: 0.07,
+            ease: "back.out(1.2)",
+          },
+          "hero-text"
+        )
+        .to(
+          ".hero-second-subtitle .animate-it",
+          {
+            yPercent: -100,
+            stagger: 0.07,
+            ease: "back.out(1.2)",
+          },
+          "hero-text"
+        )
 
-        .to(this.roomChildren.floor_items.scale, {
-          x: 1,
-          y: 1,
-          z: 1,
-          ease: "back.out(0.8)",
-          duration: 0.5,
-        })
-        .to(this.roomChildren.posters.scale, {
-          x: 1,
-          y: 1,
-          z: 1,
-          ease: "back.out(1)",
-          duration: 0.5,
-        })
-        .to(this.roomChildren.small_table.scale, {
-          x: 1,
-          y: 1,
-          z: 1,
-          ease: "back.out(2.2)",
-          duration: 0.5,
-        })
-        .to(this.roomChildren.board.scale, {
-          x: 1,
-          y: 1,
-          z: 1,
-          ease: "back.out(1)",
-          duration: 0.5,
-        })
+        .to(
+          this.roomChildren.floor_items.scale,
+          {
+            x: 1,
+            y: 1,
+            z: 1,
+            ease: "back.out(0.8)",
+            duration: 0.5,
+          },
+          ">-0.8"
+        )
+        .to(
+          this.roomChildren.posters.scale,
+          {
+            x: 1,
+            y: 1,
+            z: 1,
+            ease: "back.out(1)",
+            duration: 0.5,
+          },
+          ">-0.6"
+        )
+        .to(
+          this.roomChildren.small_table.scale,
+          {
+            x: 1,
+            y: 1,
+            z: 1,
+            ease: "back.out(2.2)",
+            duration: 0.5,
+          },
+          ">-0.4"
+        )
+        .to(
+          this.roomChildren.board.scale,
+          {
+            x: 1,
+            y: 1,
+            z: 1,
+            ease: "back.out(1.5)",
+            duration: 0.5,
+          },
+          ">-0.3"
+        )
 
-        .to(this.roomChildren.table_stands.scale, {
-          x: 1,
-          y: 1,
-          z: 1,
-          ease: "back.out(2)",
-          duration: 0.5,
-        })
+        .to(
+          this.roomChildren.table_stands.scale,
+          {
+            x: 1,
+            y: 1,
+            z: 1,
+            ease: "back.out(2)",
+            duration: 0.5,
+          },
+          ">-0.2"
+        )
 
-        .to(this.roomChildren.desk_items.scale, {
-          x: 1,
-          y: 1,
-          z: 1,
-          ease: "back.out(2.2)",
-          duration: 0.5,
-        })
+        .to(
+          this.roomChildren.desk_items.scale,
+          {
+            x: 1,
+            y: 1,
+            z: 1,
+            ease: "back.out(2.2)",
+            duration: 0.5,
+          },
+          ">-0.1"
+        )
         .to(this.roomChildren.laptop.scale, {
           x: 0.5,
           y: 0.5,
