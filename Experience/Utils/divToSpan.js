@@ -4,7 +4,7 @@ export default function (ele) {
     .split("")
     .map((char) => {
       if (char === " ") {
-        return `<span>${char}</span>`;
+        return `<span>&nbsp;</span>`;
       }
       return `<span class="animate-it">${char}</span>`;
     })
