@@ -44,6 +44,18 @@ body {
   position: relative;
 }
 
+/* Preloader section --------------------------*/
+.animate-it {
+  display: inline-block;
+  transform: translateY(100%);
+}
+.intro-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 18px;
+}
 /*Hero Section--------------------------------*/
 .hero {
   width: 100vw;
