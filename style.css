@@ -112,6 +112,7 @@ body {
   left: 50%;
   transform: translate(-50%, -50%);
   font-size: 18px;
+  font-weight: 600;
 }
 
 .arrow-svg-wrapper {
@@ -283,5 +284,26 @@ body {
   .progress-bar-wrapper-left {
     right: 0;
     left: auto;
+  }
+  .hero-wrapper {
+    width: calc(100%-60px);
+  }
+  .hero-main {
+    bottom: 80px;
+  }
+  .hero-main-title {
+    font-size: 24px;
+  }
+  .hero-main-description {
+    font-size: 20px;
+  }
+  .hero-second {
+    top: 90px;
+  }
+  .hero-second-subtitle {
+    font-size: 28px;
+  }
+  .arrow-svg-wrapper {
+    top: 95%;
   }
 }
