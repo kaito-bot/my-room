@@ -65,13 +65,18 @@ export default class Preloader extends EventEmitter {
             duration: 0.7,
           });
       }
-      this.firstIntroTimeline.to(".intro-text .animate-it", {
-        yPercent: -100,
-        stagger: 0.07,
-        ease: "back.out(1.2)",
-        duration: 0.2,
-        onComplete: resolve,
-      });
+      this.firstIntroTimeline
+        .to(".intro-text .animate-it", {
+          yPercent: -100,
+          stagger: 0.07,
+          ease: "back.out(1.2)",
+          duration: 0.2,
+          onComplete: resolve,
+        })
+        .to(".arrow-svg-wrapper", {
+          opacity: 1,
+          onComplete: resolve,
+        });
     });
   }
 
@@ -80,11 +85,23 @@ export default class Preloader extends EventEmitter {
       this.secondIntroTimeline = new GSAP.timeline();
 
       this.secondIntroTimeline
-        .to(".intro-text .animate-it", {
-          yPercent: 100,
-          stagger: 0.07,
-          ease: "back.in(1.7)",
-        })
+        .to(
+          ".intro-text .animate-it",
+          {
+            yPercent: 100,
+            stagger: 0.07,
+            ease: "back.in(1.7)",
+            duration: 0.2,
+          },
+          "fadeout"
+        )
+        .to(
+          ".arrow-svg-wrapper",
+          {
+            opacity: 0,
+          },
+          "fadeout"
+        )
         .to(
           this.room.position,
           {
@@ -242,6 +259,9 @@ export default class Preloader extends EventEmitter {
           ease: "back.out(2.2)",
           duration: 0.5,
           onComplete: resolve,
+        })
+        .to(".arrow-svg-wrapper", {
+          opacity: 1,
         });
     });
   }
