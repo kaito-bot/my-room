@@ -25,6 +25,9 @@ export default class Room {
     this.child1 = this.actualRoom.children[0].children[0].children;
     //console.log(this.child1);
     this.child1.forEach((child) => {
+      if (child.name === "directional_light") {
+        child.isDirectionalLight = false;
+      }
       child.castShadow = true;
       child.receiveShadow = true;
       //console.log(child);
@@ -32,6 +35,12 @@ export default class Room {
         child.children.forEach((groupChild) => {
           groupChild.castShadow = true;
           groupChild.receiveShadow = true;
+          if (groupChild.isObject3D) {
+            groupChild.children.forEach((groupgroupChild) => {
+              groupgroupChild.castShadow = true;
+              groupgroupChild.receiveShadow = true;
+            });
+          }
         });
       }
       child.scale.set(0, 0, 0);
