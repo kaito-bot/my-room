@@ -162,95 +162,95 @@ export default class Controls {
       );
     });
     //tablet
-    mm.add("(max-width: 968px)", () => {
-      //resets
-      this.room.scale.set(0.6, 0.6, 0.6);
-      this.room.position.x = 0.25;
+    // mm.add("(max-width: 968px)", () => {
+    //   //resets
+    //   this.room.scale.set(0.6, 0.6, 0.6);
+    //   this.room.position.x = 0.25;
 
-      //first section-------------------------------------------------------------
-      this.firstMoveTimeline = new GSAP.timeline({
-        scrollTrigger: {
-          trigger: ".first-move",
-          start: "top top",
-          end: "bottom bottom",
-          scrub: 0.1,
-          invalidateOnRefresh: true,
-        },
-      });
+    //   //first section-------------------------------------------------------------
+    //   this.firstMoveTimeline = new GSAP.timeline({
+    //     scrollTrigger: {
+    //       trigger: ".first-move",
+    //       start: "top top",
+    //       end: "bottom bottom",
+    //       scrub: 0.1,
+    //       invalidateOnRefresh: true,
+    //     },
+    //   });
 
-      this.firstMoveTimeline.to(this.room.scale, {
-        x: 0.7,
-        y: 0.7,
-        z: 0.7,
-      });
-      //second section------------------------------------------------------------
-      this.secondMoveTimeline = new GSAP.timeline({
-        scrollTrigger: {
-          trigger: ".second-move",
-          start: "top top",
-          end: "bottom bottom",
-          scrub: 0.25,
-          invalidateOnRefresh: true,
-        },
-      });
+    //   this.firstMoveTimeline.to(this.room.scale, {
+    //     x: 0.7,
+    //     y: 0.7,
+    //     z: 0.7,
+    //   });
+    //   //second section------------------------------------------------------------
+    //   this.secondMoveTimeline = new GSAP.timeline({
+    //     scrollTrigger: {
+    //       trigger: ".second-move",
+    //       start: "top top",
+    //       end: "bottom bottom",
+    //       scrub: 0.25,
+    //       invalidateOnRefresh: true,
+    //     },
+    //   });
 
-      this.secondMoveTimeline.to(
-        this.camera.orthographicCamera.position,
-        {
-          x: () => {
-            return this.sizes.width * 0.001;
-          },
-          y: () => {
-            return -this.sizes.height * 0.003;
-          },
-          z: () => {
-            return -this.sizes.height * 0.011;
-          },
-        },
-        "play at same time"
-      );
+    //   this.secondMoveTimeline.to(
+    //     this.camera.orthographicCamera.position,
+    //     {
+    //       x: () => {
+    //         return this.sizes.width * 0.001;
+    //       },
+    //       y: () => {
+    //         return -this.sizes.height * 0.003;
+    //       },
+    //       z: () => {
+    //         return -this.sizes.height * 0.011;
+    //       },
+    //     },
+    //     "play at same time"
+    //   );
 
-      this.secondMoveTimeline.to(
-        this.camera.orthographicCamera.scale,
-        {
-          x: 0.32,
-          y: 0.32,
-          z: 0.32,
-        },
-        "play at same time"
-      );
-      //third section------------------------------------------------------------
-      this.thirdMoveTimeline = new GSAP.timeline({
-        scrollTrigger: {
-          trigger: ".third-move",
-          start: "top top",
-          end: "bottom bottom",
-          scrub: 0.1,
-          invalidateOnRefresh: true,
-        },
-      });
-      this.thirdMoveTimeline.to(
-        this.camera.orthographicCamera.scale,
-        {
-          x: 0.28,
-          y: 0.28,
-          z: 0.28,
-        },
-        "third"
-      );
-      this.thirdMoveTimeline.to(
-        this.camera.orthographicCamera.position,
-        {
-          x: () => {
-            return -this.sizes.width * 0.0007;
-          },
-          y: () => {
-            return -this.sizes.height * 0.003;
-          },
-        },
-        "third"
-      );
-    });
+    //   this.secondMoveTimeline.to(
+    //     this.camera.orthographicCamera.scale,
+    //     {
+    //       x: 0.32,
+    //       y: 0.32,
+    //       z: 0.32,
+    //     },
+    //     "play at same time"
+    //   );
+    //   //third section------------------------------------------------------------
+    //   this.thirdMoveTimeline = new GSAP.timeline({
+    //     scrollTrigger: {
+    //       trigger: ".third-move",
+    //       start: "top top",
+    //       end: "bottom bottom",
+    //       scrub: 0.1,
+    //       invalidateOnRefresh: true,
+    //     },
+    //   });
+    //   this.thirdMoveTimeline.to(
+    //     this.camera.orthographicCamera.scale,
+    //     {
+    //       x: 0.28,
+    //       y: 0.28,
+    //       z: 0.28,
+    //     },
+    //     "third"
+    //   );
+    //   this.thirdMoveTimeline.to(
+    //     this.camera.orthographicCamera.position,
+    //     {
+    //       x: () => {
+    //         return -this.sizes.width * 0.0007;
+    //       },
+    //       y: () => {
+    //         return -this.sizes.height * 0.003;
+    //       },
+    //     },
+    //     "third"
+    //   );
+    // });
 
     //mobile----------------------------------------------------------------------
     mm.add("(max-width: 450px)", () => {
@@ -285,31 +285,37 @@ export default class Controls {
         },
       });
 
-      this.secondMoveTimeline.to(
-        this.camera.orthographicCamera.position,
-        {
-          x: () => {
-            return this.sizes.width * 0.0018;
-          },
-          y: () => {
-            return -this.sizes.height * 0.003;
-          },
-          z: () => {
-            return -this.sizes.height * 0.011;
-          },
-        },
-        "play at same time"
-      );
+      this.secondMoveTimeline.to(this.room.scale, {
+        x: 0.65,
+        y: 0.65,
+        z: 0.65,
+      });
 
-      this.secondMoveTimeline.to(
-        this.camera.orthographicCamera.scale,
-        {
-          x: 0.32,
-          y: 0.32,
-          z: 0.32,
-        },
-        "play at same time"
-      );
+      // this.secondMoveTimeline.to(
+      //   this.camera.orthographicCamera.position,
+      //   {
+      //     x: () => {
+      //       return this.sizes.width * 0.0018;
+      //     },
+      //     y: () => {
+      //       return -this.sizes.height * 0.003;
+      //     },
+      //     z: () => {
+      //       return -this.sizes.height * 0.011;
+      //     },
+      //   },
+      //   "play at same time"
+      // );
+
+      // this.secondMoveTimeline.to(
+      //   this.camera.orthographicCamera.scale,
+      //   {
+      //     x: 0.32,
+      //     y: 0.32,
+      //     z: 0.32,
+      //   },
+      //   "play at same time"
+      // );
       //third section------------------------------------------------------------
       this.thirdMoveTimeline = new GSAP.timeline({
         scrollTrigger: {
@@ -319,28 +325,32 @@ export default class Controls {
           scrub: 0.1,
           invalidateOnRefresh: true,
         },
+      }).to(this.room.scale, {
+        x: 0.7,
+        y: 0.7,
+        z: 0.7,
       });
-      this.thirdMoveTimeline.to(
-        this.camera.orthographicCamera.scale,
-        {
-          x: 0.28,
-          y: 0.28,
-          z: 0.28,
-        },
-        "third"
-      );
-      this.thirdMoveTimeline.to(
-        this.camera.orthographicCamera.position,
-        {
-          x: () => {
-            return -this.sizes.width * 0.0015;
-          },
-          y: () => {
-            return -this.sizes.height * 0.0035;
-          },
-        },
-        "third"
-      );
+      // this.thirdMoveTimeline.to(
+      //   this.camera.orthographicCamera.scale,
+      //   {
+      //     x: 0.28,
+      //     y: 0.28,
+      //     z: 0.28,
+      //   },
+      //   "third"
+      // );
+      // this.thirdMoveTimeline.to(
+      //   this.camera.orthographicCamera.position,
+      //   {
+      //     x: () => {
+      //       return -this.sizes.width * 0.0015;
+      //     },
+      //     y: () => {
+      //       return -this.sizes.height * 0.0035;
+      //     },
+      //   },
+      //   "third"
+      // );
     });
 
     mm.add("(min-width:20px)", () => {
