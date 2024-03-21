@@ -54,26 +54,28 @@ export default class Preloader extends EventEmitter {
             y: 1,
             z: 1,
             ease: "back.out(2.5)",
-            duration: 0.7,
+            duration: 0.4,
           })
           .to(this.room.position, {
             x: -1,
             ease: "power1.out",
-            duration: 0.7,
+            duration: 0.4,
           });
       } else {
+        this.room.position.x = 0.25;
         this.firstIntroTimeline
           .to(this.roomChildren.preloader_cube.scale, {
             x: 1,
             y: 1,
             z: 1,
             ease: "back.out(2.5)",
-            duration: 0.7,
+            duration: 0.4,
           })
           .to(this.room.position, {
             z: -1,
+
             ease: "power1.out",
-            duration: 0.7,
+            duration: 0.4,
           });
       }
       this.firstIntroTimeline
@@ -82,7 +84,6 @@ export default class Preloader extends EventEmitter {
           stagger: 0.07,
           ease: "back.out(1.2)",
           duration: 0.2,
-          onComplete: resolve,
         })
         .to(".arrow-svg-wrapper", {
           opacity: 1,
@@ -284,10 +285,10 @@ export default class Preloader extends EventEmitter {
           z: 1.5,
           ease: "back.out(2.2)",
           duration: 0.5,
-          onComplete: resolve,
         })
         .to(".arrow-svg-wrapper", {
           opacity: 1,
+          onComplete: resolve,
         });
     });
   }
@@ -344,7 +345,7 @@ export default class Preloader extends EventEmitter {
     if (this.device === "desktop") {
       this.room.position.set(-1, 0, 0);
     } else {
-      this.room.position.set(0, 0, -1);
+      this.room.position.set(0.25, 0, -1);
     }
   }
 
