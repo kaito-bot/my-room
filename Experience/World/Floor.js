@@ -1,6 +1,5 @@
 import Experience from "../Experience";
 import * as THREE from "three";
-import GSAP from "gsap";
 
 export default class Floor {
   constructor() {
@@ -14,7 +13,7 @@ export default class Floor {
   setFloor() {
     this.geometry = new THREE.PlaneGeometry(100, 100);
     this.material = new THREE.MeshStandardMaterial({
-      color: 0xd5a1a1,
+      color: 0xffcfcf,
     });
     this.plane = new THREE.Mesh(this.geometry, this.material);
 

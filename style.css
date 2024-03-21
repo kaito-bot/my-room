@@ -50,7 +50,7 @@ body {
 }
 
 .preloader {
-  background-color: var(--color-background);
+  background-color: #ffcfcf;
   width: 100%;
   opacity: 1;
   height: 100vh;
@@ -289,7 +289,7 @@ body {
     width: calc(100%-60px);
   }
   .hero-main {
-    bottom: 80px;
+    bottom: 5%;
   }
   .hero-main-title {
     font-size: 24px;
