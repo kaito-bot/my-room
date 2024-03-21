@@ -355,7 +355,7 @@ export default class Controls {
             borderTopLeftRadius: 10,
             scrollTrigger: {
               trigger: section,
-              markers: true,
+
               start: "top bottom",
               end: "top top",
               scrub: 0.6,
