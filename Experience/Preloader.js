@@ -112,8 +112,9 @@ export default class Preloader extends EventEmitter {
             opacity: 0,
           },
           "fadeout"
-        )
-        .to(
+        );
+      if (this.device === "desktop") {
+        this.secondIntroTimeline.to(
           this.room.position,
           {
             x: 0,
@@ -122,7 +123,21 @@ export default class Preloader extends EventEmitter {
             ease: "power1.out",
           },
           "secondIntro"
-        )
+        );
+      } else {
+        this.secondIntroTimeline.to(
+          this.room.position,
+          {
+            x: 0.25,
+            y: 0,
+            z: 0,
+            ease: "power1.out",
+          },
+          "secondIntro"
+        );
+      }
+
+      this.secondIntroTimeline
         .to(
           this.roomChildren.preloader_cube.rotation,
           {
@@ -335,7 +350,7 @@ export default class Preloader extends EventEmitter {
 
   scale() {
     if (this.device === "desktop") {
-      this.room.scale.set(0.75, 0.75, 0.75);
+      this.room.scale.set(0.7, 0.7, 0.7);
     } else {
       this.room.scale.set(0.45, 0.45, 0.45);
     }

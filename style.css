@@ -50,7 +50,7 @@ body {
 }
 
 .preloader {
-  background-color: #ffcfcf;
+  background-color: #dccccc;
   width: 100%;
   opacity: 1;
   height: 100vh;
@@ -118,7 +118,7 @@ body {
 .arrow-svg-wrapper {
   position: absolute;
   opacity: 0;
-  top: 90%;
+  top: 92%;
   left: 50%;
   transform: translate(-50%, -50%);
   animation: bounce 0.5s ease-in alternate infinite;
@@ -304,6 +304,6 @@ body {
     font-size: 28px;
   }
   .arrow-svg-wrapper {
-    top: 95%;
+    bottom: 5%;
   }
 }
