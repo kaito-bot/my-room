@@ -8,7 +8,9 @@ import Resources from "./Utils/Resources";
 import Renderer from "./Renderer";
 import Camera from "./Camera";
 
+import Preloader from "./Preloader";
 import World from "./World/World";
+import Controls from "./World/Controls";
 
 export default class Experience {
   static instance;
@@ -25,6 +27,11 @@ export default class Experience {
     this.time = new Time();
     this.resources = new Resources(assets);
     this.world = new World();
+    this.preloader = new Preloader();
+
+    this.preloader.on("enable-controls", () => {
+      this.controls = new Controls();
+    });
 
     this.sizes.on("resize", () => {
       this.resize();
@@ -41,6 +48,7 @@ export default class Experience {
   }
 
   update() {
+    this.preloader.update();
     this.camera.update();
     this.renderer.update();
     this.world.update();

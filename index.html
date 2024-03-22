@@ -3,19 +3,49 @@
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <link rel="stylesheet" href="./style.css" />
+    <!-- <link rel="stylesheet" href="./style.css" /> -->
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
     <title>Vite App</title>
   </head>
   <body>
     <div class="experience">
       <canvas class="experience-canvas"></canvas>
     </div>
-    <div class="page">
-      <div class="page-wrapper">
+    <!-- loading section -->
+    <div class="preloader">
+      <div class="preloader-wrapper">
+        <div class="loading">
+          <div class="square"></div>
+          <div class="square"></div>
+          <div class="square"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="page" asscroll-container>
+      <div class="page-wrapper" asscroll>
         <!-- hero-section -->
         <section class="hero">
           <div class="hero-wrapper">
+            <div class="intro-text">Welcome to my portfolio !</div>
+            <div class="arrow-svg-wrapper">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="currentColor"
+                height="48"
+                viewBox="0 -960 960 960"
+                width="48"
+              >
+                <path
+                  d="M480-357q-6 0-11-2t-10-7L261-564q-9-9-9-21t9-21q9-9 21.5-9t21.5 9l176 176 176-176q9-9 21-9t21 9q9 9 9 21.5t-9 21.5L501-366q-5 5-10 7t-11 2Z"
+                />
+              </svg>
+            </div>
             <div class="hero-main">
               <h1 class="hero-main-title">Weaving Ideas</h1>
               <p class="hero-main-description">Into User Interfaces</p>
@@ -32,25 +62,54 @@
         <div class="first-move section-pages"></div>
         <!-- first-section -->
         <section class="first-section section right">
+          <div class="progress-wrapper progress-bar-wrapper-right">
+            <div class="progress-bar"></div>
+          </div>
           <div class="section-intro-wrapper">
             <h1 class="section-title">About me</h1>
             <span class="section-number">01</span>
           </div>
           <div class="section-detail-wrapper">
-            <h3 class="section-subheading">Lorem ipsum</h3>
+            <i class="fa-light fa-hand-wave"></i>
+            <h2 class="section-subheading">
+              Hello there<span class="emoji">👋</span>! I'm Vaishnavi.
+            </h2>
             <p class="section-text">
-              dolor sit amet consectetur adipisicing elit. Soluta velit animi
-              incidunt maxime pariatur fugiat in necessitatibus nihil magnam.
+              I am a passionate web developer hailing from the vibrant city of
+              Indore, India. With a Bachelor's degree in Technology in Computer
+              Science, I've honed my skills and cultivated a deep love for
+              crafting innovative solutions through web development.
             </p>
-            <h3 class="section-subheading">Lorem ipsum</h3>
+            <h2 class="section-subheading">
+              <span class="material-icons lineup emoji"> code </span>
+              Code( );
+            </h2>
             <p class="section-text">
-              dolor sit amet consectetur adipisicing elit. Soluta velit animi
-              incidunt maxime pariatur fugiat in necessitatibus nihil magnam.
+              <b
+                >For me, coding isn't just a profession; it's a profound
+                passion.</b
+              ><br />
+              I thrive on the challenges it presents and the opportunities it
+              unlocks for continuous growth. Whether it's mastering new
+              languages, diving into emerging frameworks, or experimenting with
+              cutting-edge technologies, I'm always eager to expand my knowledge
+              and push the boundaries of what's possible.
             </p>
-            <h3 class="section-subheading">Lorem ipsum</h3>
+            <h2 class="section-subheading">
+              <span class="emoji">🎯</span>Vision for Impact
+            </h2>
             <p class="section-text">
-              dolor sit amet consectetur adipisicing elit. Soluta velit animi
-              incidunt maxime pariatur fugiat in necessitatibus nihil magnam.
+              My ultimate aspiration is to make a meaningful impact in the world
+              of technology. I envision a future where my contributions pave the
+              way for transformative advancements, enriching the lives of people
+              globally.
+            </p>
+            <h2 class="section-subheading">
+              Fun fact about me<span class="emoji">😊</span>
+            </h2>
+            <p class="section-text">
+              I love cold-coffee and playing ukulele.<br />
+              (P.S:- I am also a huge fan of anime.)
             </p>
           </div>
         </section>
@@ -58,56 +117,184 @@
         <!-- second-section -->
         <div class="second-move section-pages"></div>
         <section class="second-section section left">
+          <div class="progress-wrapper progress-bar-wrapper-left">
+            <div class="progress-bar blue-background"></div>
+          </div>
           <div class="section-intro-wrapper">
             <h1 class="section-title">My Creations</h1>
             <span class="section-number">02</span>
           </div>
           <div class="section-detail-wrapper">
-            <h3 class="section-subheading">Lorem ipsum</h3>
+            <h2 class="heading">Web Development</h2>
             <p class="section-text">
-              dolor sit amet consectetur adipisicing elit. Soluta velit animi
-              incidunt maxime pariatur fugiat in necessitatibus nihil magnam.
+              I prefer to learn by doing. So, throughout my academic years, i
+              have developed many web-based projects that helped me enhance my
+              skills and provide me better understanding of different
+              technologies. Do check it out 😉!
             </p>
-            <h3 class="section-subheading">Lorem ipsum</h3>
+            <h3 class="section-subheading">Utopia</h3>
             <p class="section-text">
-              dolor sit amet consectetur adipisicing elit. Soluta velit animi
-              incidunt maxime pariatur fugiat in necessitatibus nihil magnam.
+              "Utopia Fashion E-Store" is a vibrant online platform catering to
+              the diverse fashion needs of families. To the develop this
+              application, I used
+              <b>React.js</b>, <b>Express.js</b>, <b>Redux</b>,
+              <b>Firebase</b>,<b> SCSS</b> and <b>Stripe</b> API's payment
+              gateway.
             </p>
-            <h3 class="section-subheading">Lorem ipsum</h3>
+
+            <button class="applink-button" role="button">
+              <a href="https://utopia-kaito-bot.vercel.app" target="_blank"
+                >🔗App</a
+              >
+            </button>
+
+            <h3 class="section-subheading">VS 2.0</h3>
             <p class="section-text">
-              dolor sit amet consectetur adipisicing elit. Soluta velit animi
-              incidunt maxime pariatur fugiat in necessitatibus nihil magnam.
+              "VS 2.0" is a 3D Room Portfolio Website. This was the first time I
+              have worked with 3D and I absolutely loved it ❤️. For this
+              website, I developed a 3D model using <b>Spline</b> and used
+              <b>Three.js </b>(to render the model and environment),<b>GSAP</b>
+              (to animate things) and <b>Vanilla javaScript</b> to develop this
+              beautiful Room Portfolio Website.
             </p>
+            <button class="applink-button" role="button">
+              <a href="https://utopia-kaito-bot.vercel.app" target="_blank"
+                >🔗App</a
+              >
+            </button>
+            <h3 class="section-subheading">Evento</h3>
+            <p class="section-text">
+              This project is a work in progress 🔧, but it is an event
+              management application that will be developed using
+              <b>MERN</b> stack to streamline the process of event creation and
+              registration.
+            </p>
+            <button class="applink-button" role="button">
+              <a href="https://github.com/kaito-bot/Evento" target="_blank"
+                >🔗GitHub</a
+              >
+            </button>
+            <h3 class="section-subheading">Monsterque</h3>
+            <p class="section-text">
+              "Monsterque" is a simple search component featuring an elegant and
+              intuitive User Interface. Through seamless integration with the
+              <b>Fetch API</b>, Monsterque swiftly retrieves data from a
+              third-party API, enabling users to swiftly locate their desired
+              character. I used <b>React.js</b> to develop this small
+              application.
+            </p>
+            <button class="applink-button" role="button">
+              <a href="https://monsterque.netlify.app/" target="_blank"
+                >🔗App</a
+              >
+            </button>
+            <h3 class="section-subheading">HaveSomeWater</h3>
+            <p class="section-text">
+              "HaveSomeWater" is a small web application that keeps track of how
+              much water you drank in the whole day and how much water💧 is
+              remaining. I developed this small application using <b>HTML</b>,
+              <b>CSS</b> and <b>JavaScript</b>
+            </p>
+            <button class="applink-button" role="button">
+              <a href="https://havesomewater.netlify.app/" target="_blank"
+                >🔗App</a
+              >
+            </button>
+            <h3 class="section-subheading">Finansiera</h3>
+            <p class="section-text">
+              "Finansiera" is a 🪙 Finance company's landing page. I Developed
+              this website using
+              <b>HTML</b> and<b> CSS</b>.
+            </p>
+            <button class="applink-button" role="button">
+              <a href="https://finansiera.netlify.app/" target="_blank">
+                🔗App
+              </a>
+            </button>
+            <h3 class="section-subheading">Kavai</h3>
+            <p class="section-text">
+              "Kavai" is a Hotel's landing page. I Developed this website using
+              <b>HTML</b> and<b> CSS</b>.
+            </p>
+            <but class="applink-button">
+              <a href="https://kavaihotel.netlify.app/" target="_blank">
+                🔗App</a
+              >
+            </but>
           </div>
         </section>
 
         <!-- third-section -->
         <div class="third-move section-pages"></div>
         <section class="third-section section right">
+          <div class="progress-wrapper progress-bar-wrapper-right">
+            <div class="progress-bar green-background"></div>
+          </div>
           <div class="section-intro-wrapper">
-            <h1 class="section-title">Let's Connect</h1>
+            <h1 class="section-title">Let's Connect 🤝</h1>
             <span class="section-number">03</span>
           </div>
           <div class="section-detail-wrapper">
-            <h3 class="section-subheading">Lorem ipsum</h3>
+            <h3 class="section-subheading">LinkedIn 💼</h3>
             <p class="section-text">
-              dolor sit amet consectetur adipisicing elit. Soluta velit animi
-              incidunt maxime pariatur fugiat in necessitatibus nihil magnam.
+              Feel free to reach out and connect with me on LinkedIn for
+              professional networking and collaboration opportunities.
             </p>
-            <h3 class="section-subheading">Lorem ipsum</h3>
+            <button class="connect-button" role="button">
+              <a
+                href="https://www.linkedin.com/in/vaishnavi2023/"
+                target="_blank"
+                >LinkedIn</a
+              >
+            </button>
+
+            <h3 class="section-subheading">GitHub 🚀</h3>
             <p class="section-text">
-              dolor sit amet consectetur adipisicing elit. Soluta velit animi
-              incidunt maxime pariatur fugiat in necessitatibus nihil magnam.
+              Dive into my code repositories and projects on GitHub to explore
+              my coding journey. Follow me for updates on my latest coding
+              endeavors and collaborations.
             </p>
-            <h3 class="section-subheading">Lorem ipsum</h3>
+            <button class="connect-button" role="button">
+              <a href="https://github.com/kaito-bot" target="_blank">GitHub</a>
+            </button>
+            <h3 class="section-subheading">Linktree 🌳</h3>
             <p class="section-text">
-              dolor sit amet consectetur adipisicing elit. Soluta velit animi
-              incidunt maxime pariatur fugiat in necessitatibus nihil magnam.
+              Explore my digital presence and stay updated on my latest
+              projects, certifications, achievements, and more through my
+              Linktree profile.
             </p>
+            <button class="connect-button" role="button">
+              <a href="https://linktr.ee/vaishnavi02sharma" target="_blank"
+                >Linktree</a
+              >
+            </button>
+            <h3 class="section-subheading">LeetCode 👩🏻‍💻</h3>
+            <p class="section-text">
+              Find me on LeetCode and let's solve problems together!
+            </p>
+            <button class="connect-button" role="button">
+              <a href="https://leetcode.com/kaito-bot/" target="_blank"
+                >LeetCode</a
+              >
+            </button>
+            <h3 class="section-subheading">Instagram ✨</h3>
+            <p class="section-text">
+              📸🎶 Apart from coding, I love to sing. You'll find my music
+              videos and more on my Instagram profile. Follow along for a mix of
+              tech and tunes!🎵 <b>#CodingAndChords</b>.
+            </p>
+            <button class="connect-button" role="button">
+              <a href="https://www.instagram.com/kavaisha/" target="_blank"
+                >Instagram</a
+              >
+            </button>
           </div>
         </section>
+        <div class="blank-space">&nbsp;</div>
+        <div class="footer">Made with ❤️ by Vaishnavi Sharma</div>
       </div>
     </div>
+
     <script type="module" src="/main.js"></script>
   </body>
 </html>
