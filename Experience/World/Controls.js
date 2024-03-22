@@ -3,6 +3,7 @@ import * as THREE from "three";
 import GSAP from "gsap";
 import ASScroll from "@ashthornton/asscroll";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+
 export default class Controls {
   constructor() {
     this.experience = new Experience();
@@ -15,14 +16,21 @@ export default class Controls {
 
     GSAP.registerPlugin(ScrollTrigger);
     document.querySelector(".page").style.overflow = "visible";
-    this.setSmoothScroll();
+    if (
+      !/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+        navigator.userAgent
+      )
+    ) {
+      this.setSmoothScroll();
+    }
     this.setScrollTrigger();
   }
 
+  //for smooth scrolling
   setupASScroll() {
     // https://github.com/ashthornton/asscroll
     const asscroll = new ASScroll({
-      // ease: 0.05,
+      ease: 0.05,
       disableRaf: true,
     });
 
@@ -71,6 +79,7 @@ export default class Controls {
     // create
     let mm = GSAP.matchMedia();
 
+    //gsap animations on scrolling downwards
     //Desktop---------------------------------------------------------------------
     mm.add("(min-width: 969px)", () => {
       this.room.scale.set(0.7, 0.7, 0.7);
@@ -359,7 +368,7 @@ export default class Controls {
       this.sections.forEach((section) => {
         this.progressWrapper = section.querySelector(".progress-wrapper");
         this.progressBar = section.querySelector(".progress-bar");
-
+        //section's corners animations
         if (section.classList.contains("right")) {
           GSAP.to(section, {
             borderTopLeftRadius: 10,
@@ -400,7 +409,7 @@ export default class Controls {
             },
           });
         }
-
+        //progress bar animations
         GSAP.from(this.progressBar, {
           scaleY: 0,
           scrollTrigger: {
