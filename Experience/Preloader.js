@@ -30,7 +30,7 @@ export default class Preloader extends EventEmitter {
     divToSpan(document.querySelector(".hero-second-subtitle"));
     this.room = this.experience.world.room.actualRoom;
     this.roomChildren = this.experience.world.room.roomChildren;
-    console.log(this.roomChildren);
+    //console.log(this.roomChildren);
   }
 
   firstIntro() {
@@ -294,7 +294,7 @@ export default class Preloader extends EventEmitter {
   }
   onScroll(e) {
     if (e.deltaY > 0) {
-      console.log("added event");
+      //console.log("added event");
       this.removeEventListeners();
       this.playSecondIntro();
     }
@@ -308,7 +308,7 @@ export default class Preloader extends EventEmitter {
     let currentY = e.touches[0].clientY;
     let difference = this.initialY - currentY;
     if (difference > 0) {
-      console.log("swiped up");
+      //console.log("swiped up");
       this.removeEventListeners();
       this.playSecondIntro();
     }
@@ -322,7 +322,7 @@ export default class Preloader extends EventEmitter {
   async playFirstIntro() {
     await this.firstIntro();
     this.moveFlag = true;
-    console.log("continuing");
+    // console.log("continuing");
     //desktop view
     this.scrollOnceEvent = this.onScroll.bind(this);
     window.addEventListener("wheel", this.scrollOnceEvent);
