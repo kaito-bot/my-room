@@ -40,8 +40,8 @@ export default class Camera {
       -30,
       30
     );
-
-    this.orthographicCamera.position.y = 4.7;
+    // Y is originally 4.7 !
+    this.orthographicCamera.position.y = 3;
     this.orthographicCamera.position.z = 5;
     this.orthographicCamera.position.x = 0.3;
     this.orthographicCamera.rotation.x = -Math.PI / 6;
@@ -59,8 +59,8 @@ export default class Camera {
     // this.scene.add(gridHelper);
 
     //axes helper
-    const axesHelper = new THREE.AxesHelper(10);
-    this.scene.add(axesHelper);
+    // const axesHelper = new THREE.AxesHelper(10);
+    // this.scene.add(axesHelper);
   }
 
   setOrbitControls() {

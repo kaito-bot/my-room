@@ -1,12 +1,14 @@
 import Experience from "../Experience";
 import * as THREE from "three";
+import { EventEmitter } from "events";
 import Room from "./Room";
 import Environment from "./Environment";
 import Controls from "./Controls";
 import Floor from "./Floor";
 
-export default class World {
+export default class World extends EventEmitter {
   constructor() {
+    super();
     this.experience = new Experience();
     this.scene = this.experience.scene;
     this.sizes = this.experience.sizes;
@@ -17,9 +19,10 @@ export default class World {
     this.resources.on("ready", () => {
       this.environment = new Environment();
       this.room = new Room();
-      console.log("created room");
+      //console.log("created room");
       this.floor = new Floor();
-      this.controls = new Controls();
+      this.emit("worldIsReady");
+      // this.controls = new Controls();
     });
   }
 
