@@ -19,8 +19,9 @@ export default class World extends EventEmitter {
     this.resources.on("ready", () => {
       this.environment = new Environment();
       this.room = new Room();
-      //console.log("created room");
+      console.log("created room");
       this.floor = new Floor();
+      console.log("created floor");
       this.emit("worldIsReady");
       // this.controls = new Controls();
     });
