@@ -21,18 +21,23 @@ export default class Resources extends EventEmitter {
 
   setLoaders() {
     this.loaders = {};
+    console.log("loading with gltf loader");
     this.loaders.gltfLoader = new GLTFLoader();
+    console.log("loading with draco loader");
     this.loaders.dracoLoader = new DRACOLoader();
     this.loaders.dracoLoader.setDecoderPath("/draco/");
-    //this.loaders.gltfLoader.setDRACOLoader(this.loaders.dracoLoader);
+    this.loaders.gltfLoader.setDRACOLoader(this.loaders.dracoLoader);
   }
 
   startLoading() {
+    console.log("assets length", this.assets.length);
     for (const asset of this.assets) {
       if (asset.type === "glbModel") {
+        console.log("loading this asset", asset);
         this.loaders.gltfLoader.load(asset.path, (file) => {
           this.singleAssetLoaded(asset, file);
         });
+        console.log("loaded glt file");
       }
     }
   }
