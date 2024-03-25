@@ -161,7 +161,7 @@ canvas {
 .hero-wrapper {
   position: relative;
   height: 100%;
-  width: calc(100% - 900px);
+  width: 100%;
   margin: 0 auto;
   max-width: 1100px;
 }
@@ -355,6 +355,7 @@ a {
 /* CSS */
 .connect-button {
   letter-spacing: 2px;
+  background-color: #fbeee0;
   text-decoration: none;
   text-transform: uppercase;
   margin-top: 10px;

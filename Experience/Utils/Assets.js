@@ -2,7 +2,7 @@ const assets = [
   {
     name: "room",
     type: "glbModel",
-    path: "/models/blend-room1.glb",
+    path: "/models/blend-room29.glb",
   },
 ];
 

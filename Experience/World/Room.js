@@ -48,8 +48,8 @@ export default class Room {
 
       child.scale.set(0, 0, 0);
       if (child.name === "preloader_cube") {
-        child.scale.set(2, 2, 2);
-        child.position.set(0, 0.5, 0);
+        child.scale.set(0.7, 0.7, 0.7);
+        child.position.set(0, 20, 0);
         child.rotation.y = Math.PI / 4;
       }
       // created key-value pairs of room objects
