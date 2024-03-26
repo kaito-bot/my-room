@@ -25,7 +25,7 @@ export default class Room {
   //to enable shadows on every object present in the model
   setModel() {
     this.child1 = this.actualRoom.children[0].children[0].children;
-    //console.log(this.child1);
+    console.log("model things", this.child1);
     this.child1.forEach((child) => {
       if (child.name === "directional_light") {
         child.isDirectionalLight = false;
@@ -48,14 +48,14 @@ export default class Room {
 
       child.scale.set(0, 0, 0);
       if (child.name === "preloader_cube") {
-        child.scale.set(0.5, 0.5, 0.5);
+        child.scale.set(0.7, 0.7, 0.7);
         child.position.set(0, 20, 0);
         child.rotation.y = Math.PI / 4;
       }
       // created key-value pairs of room objects
       this.roomChildren[child.name.toLowerCase()] = child;
     });
-
+    console.log("roomChildren", this.roomChildren);
     this.actualRoom.scale.set(0.75, 0.75, 0.75);
     this.scene.add(this.actualRoom);
   }
