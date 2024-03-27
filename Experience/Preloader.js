@@ -85,6 +85,9 @@ export default class Preloader extends EventEmitter {
           ease: "back.out(1.2)",
           duration: 0.2,
         })
+        .to(".scroll-down", {
+          opacity: 1,
+        })
         .to(".arrow-svg-wrapper", {
           opacity: 1,
           onComplete: resolve,
@@ -104,6 +107,13 @@ export default class Preloader extends EventEmitter {
             stagger: 0.07,
             ease: "back.in(1.7)",
             duration: 0.2,
+          },
+          "fadeout"
+        )
+        .to(
+          ".scroll-down",
+          {
+            opacity: 0,
           },
           "fadeout"
         )
@@ -286,6 +296,7 @@ export default class Preloader extends EventEmitter {
           ease: "back.out(2.2)",
           duration: 0.5,
         })
+        .to(".scroll-down", { opacity: 1 })
         .to(".arrow-svg-wrapper", {
           opacity: 1,
           onComplete: resolve,

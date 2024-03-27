@@ -25,7 +25,8 @@ export default class Room {
   //to enable shadows on every object present in the model
   setModel() {
     this.child1 = this.actualRoom.children[0].children[0].children;
-    console.log("model things", this.child1);
+    // console.log("model things", this.child1);
+
     this.child1.forEach((child) => {
       if (child.name === "directional_light") {
         child.isDirectionalLight = false;
@@ -55,7 +56,9 @@ export default class Room {
       // created key-value pairs of room objects
       this.roomChildren[child.name.toLowerCase()] = child;
     });
-    console.log("roomChildren", this.roomChildren);
+
+    // console.log("roomChildren", this.roomChildren);
+
     this.actualRoom.scale.set(0.75, 0.75, 0.75);
     this.scene.add(this.actualRoom);
   }

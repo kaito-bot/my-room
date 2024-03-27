@@ -133,6 +133,18 @@ canvas {
   font-weight: 600;
 }
 
+.scroll-down {
+  position: absolute;
+
+  opacity: 0;
+  top: 92%;
+  left: 43%;
+  font-size: 14px;
+  font-weight: 600;
+  transform: translate(-50%, -50%);
+  animation: bounce 0.5s ease-in alternate infinite;
+}
+
 .arrow-svg-wrapper {
   position: absolute;
 
@@ -399,7 +411,7 @@ a {
     width: calc(100% - 60px);
   }
   .hero-main {
-    bottom: 5%;
+    bottom: 10%;
   }
   .hero-main-title {
     font-size: 24px;
@@ -412,6 +424,10 @@ a {
   }
   .hero-second-subtitle {
     font-size: 28px;
+  }
+  .scroll-down {
+    left: 40%;
+    font-size: 12px;
   }
   .arrow-svg-wrapper {
     bottom: 5%;
