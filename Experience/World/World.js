@@ -19,11 +19,11 @@ export default class World extends EventEmitter {
     this.resources.on("ready", () => {
       this.environment = new Environment();
       this.room = new Room();
-      console.log("created room");
+      // console.log("created room");
       this.floor = new Floor();
-      console.log("created floor");
+      // console.log("created floor");
       this.emit("worldIsReady");
-      console.log("world ready was emitted");
+      // console.log("world ready was emitted");
       // this.controls = new Controls();
     });
   }

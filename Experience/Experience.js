@@ -20,23 +20,23 @@ export default class Experience {
     }
     Experience.instance = this;
     this.canvas = canvas;
-    console.log("loading scene....");
+    // console.log("loading scene....");
     this.scene = new THREE.Scene();
-    console.log("loaded scene.....Now loading sizes");
+    //console.log("loaded scene.....Now loading sizes");
     this.sizes = new Sizes();
-    console.log("loaded sizes.....Now loading camera");
+    // console.log("loaded sizes.....Now loading camera");
     this.camera = new Camera();
-    console.log("loaded camera.....Now loading renderer");
+    //console.log("loaded camera.....Now loading renderer");
     this.renderer = new Renderer();
-    console.log("loaded renderer.....Now loading time");
+    //console.log("loaded renderer.....Now loading time");
     this.time = new Time();
-    console.log("loaded time.....Now loading resources");
+    // console.log("loaded time.....Now loading resources");
     this.resources = new Resources(assets);
-    console.log("loaded resources.....Now loading world");
+    // console.log("loaded resources.....Now loading world");
     this.world = new World();
-    console.log("loaded world.....Now loading preloader");
+    //console.log("loaded world.....Now loading preloader");
     this.preloader = new Preloader();
-    console.log("loaded preloader.... now ready");
+    //console.log("loaded preloader.... now ready");
 
     this.preloader.on("enable-controls", () => {
       this.controls = new Controls();
