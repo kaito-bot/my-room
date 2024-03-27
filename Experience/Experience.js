@@ -20,6 +20,7 @@ export default class Experience {
     }
     Experience.instance = this;
     this.canvas = canvas;
+
     // console.log("loading scene....");
     this.scene = new THREE.Scene();
     //console.log("loaded scene.....Now loading sizes");
@@ -37,6 +38,7 @@ export default class Experience {
     //console.log("loaded world.....Now loading preloader");
     this.preloader = new Preloader();
     //console.log("loaded preloader.... now ready");
+
 
     this.preloader.on("enable-controls", () => {
       this.controls = new Controls();
